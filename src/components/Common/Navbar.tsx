@@ -1,3 +1,4 @@
+import { navItem } from "@/constants";
 import { Menu, Search, ShoppingCart, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -15,15 +16,15 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden items-center gap-5 md:flex">
-            <Link to="/" className="text-sm font-medium text-slate-700 hover:text-slate-950">
-              Shop
-            </Link>
-            <Link to="/" className="text-sm font-medium text-slate-700 hover:text-slate-950">
-              New Arrivals
-            </Link>
-            <Link to="/about" className="text-sm font-medium text-slate-700 hover:text-slate-950">
-              About
-            </Link>
+            <ul className='hidden lg:flex gap-6'>
+              {navItem.map((item, index) => (
+                <li key={index}>
+                  <Link to={item.href} className="text-sm font-medium text-slate-600 hover:text-slate-950">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -58,6 +59,7 @@ const Navbar = () => {
           >
             <span>Sign In</span>
           </Link>
+
 
           <button
             type="button"
@@ -105,27 +107,16 @@ const Navbar = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <Link
-              to="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-base font-medium text-slate-800 hover:text-slate-950"
-            >
-              Shop
-            </Link>
-            <Link
-              to="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-base font-medium text-slate-800 hover:text-slate-950"
-            >
-              New Arrivals
-            </Link>
-            <Link
-              to="/about"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-base font-medium text-slate-800 hover:text-slate-950"
-            >
-              About
-            </Link>
+            {navItem.map((item, index) => (
+              <Link
+                key={index}
+                to={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-medium text-slate-800 hover:text-slate-950"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         </aside>
       </div>
