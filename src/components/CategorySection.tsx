@@ -3,8 +3,9 @@ import { categories } from "@/constants"
 const CategorySection = () => {
     return (
         <div className="bg-white py-12 mb-10">
-            <h1 className="mb-4 text-xl font-bold text-slate-900 pl-20">Shop by Category</h1>
-            <div className=" mx-auto flex max-w-6xl flex-wrap justify-center gap-2">
+            <div className="mx-auto max-w-6xl">
+                <h1 className="mb-4 text-xl font-bold text-slate-900">Shop by Category</h1>
+                <div className="flex flex-wrap justify-start gap-2">
                 {categories.map((category) => (
                     <div
                         key={category.id}
@@ -15,6 +16,7 @@ const CategorySection = () => {
                         <h3 className="relative z-10 text-center text-lg font-semibold text-white">{category.name}</h3>
                     </div>
                 ))}
+                </div>
             </div>
         </div>
     )

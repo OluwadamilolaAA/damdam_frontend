@@ -6,9 +6,10 @@ import { ShoppingCart } from "lucide-react"
 
 const image1 = new URL("../assets/earpod.jfif", import.meta.url).href
 const image2 = new URL("../assets/smart.jfif", import.meta.url).href
+const image3 = new URL("../assets/Bagpack.jfif", import.meta.url).href
 
 export const navItem = [
-  {label: "Shop", href: "/"},
+  {label: "Shop", href: "/shop"},
   {label: "New Arrivals", href: "/new-arrivals"},
   {label: "About", href: "/about"}
 ]
@@ -88,4 +89,62 @@ export const legalLinks = [
 
 export const subscribeLinks = [
     { href: "#", text:"The lastest news, articles, and resources, sent to your inbox weekly" }
+]
+
+export const categoryLink = [
+    { href: "#", text:"Electronics" },
+    { href: "#", text:"Footwear" },
+    { href: "#", text:"Accessories" },
+    { href: "#", text:"Clothing" }
+]
+
+export const shoppingCart = [
+  {
+    id: 1,
+    image: image1,
+    name: "Modern Wireless Headphones",
+    note: "Electronics",
+    price: 299,
+    icon: <ShoppingCart className="h-5 w-5 text-slate-700" />
+  },
+  {
+    id: 2,
+    image: image2,
+    name: "Performance Running Shoes",
+    note: "Footwear",
+    price: 129,
+    icon: <ShoppingCart className="h-5 w-5 text-slate-700" />
+  },
+  {
+    id: 3,
+    image: image2,
+    name: "Smart Fitness Watch",
+    note: "Electronics",
+    price: 199,
+    icon: <ShoppingCart className="h-5 w-5 text-slate-700" />
+  },
+  {
+    id: 4,
+    image: image3,
+    name: "Urban Commuter Backpack",
+    note: "Accessories",
+    price: 89,
+    icon: <ShoppingCart className="h-5 w-5 text-slate-700" />
+  },
+  {
+    id: 5,
+    image: image2,
+    name: "Classic Aviator Sunglasses",
+    note: "Accessories",
+    price: 149,
+    icon: <ShoppingCart className="h-5 w-5 text-slate-700" />
+  },
+  {
+    id: 6,
+    image: image2,
+    name: "Premium Cotton T-Shirt",
+    note: "Clothing",
+    price: 35,
+    icon: <ShoppingCart className="h-5 w-5 text-slate-700" />
+  }
 ]

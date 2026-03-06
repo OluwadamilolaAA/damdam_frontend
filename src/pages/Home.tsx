@@ -3,7 +3,6 @@ import FeatureSection from "@/components/FeatureSection";
 import earpod from "../assets/earpod.jfif";
 import NewArrivals from "@/components/NewArrivals";
 import CategorySection from "@/components/CategorySection";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -40,7 +39,6 @@ export default function Home() {
       <FeatureSection />
       <NewArrivals />
       <CategorySection />
-      <Footer />
     </div>
   );
 }

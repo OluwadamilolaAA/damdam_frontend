@@ -6,13 +6,16 @@ import ResetPassword from "./components/reset-password";
 import DashboardPage from "./pages/Dashboard-page";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import ShopSection from "./pages/Shop";
 import Navbar from "./components/Common/Navbar";
+import Footer from "./components/Footer";
 
 const AUTH_ROUTES = new Set(["/signup", "/login", "/forgot-password", "/reset-password"]);
 
 const AppContent = () => {
   const { pathname } = useLocation();
   const showNavbar = !AUTH_ROUTES.has(pathname);
+  const showFooter = !AUTH_ROUTES.has(pathname);
 
   return (
     <>
@@ -20,12 +23,14 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/shop" element={<ShopSection />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
+      {showFooter && <Footer />}
     </>
   );
 };
