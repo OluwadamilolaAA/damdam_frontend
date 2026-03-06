@@ -46,7 +46,6 @@ const ShopSection = () => {
                   {item.name}
                 </h3>
                 <p className="mt-1 text-sm text-slate-600">{item.note}</p>
-                {/* ensure bottom row has fixed height so icon aligns consistently */}
                 <div className="mt-auto flex h-10 items-center justify-between pt-4">
                   <p className="text-sm font-semibold text-black">
                     ${item.price}
