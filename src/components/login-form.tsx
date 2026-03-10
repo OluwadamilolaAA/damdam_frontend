@@ -17,15 +17,17 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<string | null>(null);
 
-  const { setUser } = useUserStore();
+  const { setAuth } = useUserStore();
   const navigate = useNavigate();
+  const authBaseUrl =
+    import.meta.env.VITE_AUTH_API_URL || "http://localhost:4000/api/auth";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors(null);
     try {
       const res = await login({ email, password });
-      setUser(res.data.user);
+      setAuth(res.data.user, res.data.accessToken);
       navigate("/dashboard");
     } catch (err: any) {
       setErrors(err.response?.data?.message || err.message || "Login failed");
@@ -83,7 +85,14 @@ export function Login() {
               <FieldSeparator>Or continue with</FieldSeparator>
               <Field>
                 <div className="flex gap-2">
-                  <Button variant="outline" type="button" className="flex-1 rounded-lg">
+                  <Button
+                    variant="outline"
+                    type="button"
+                    className="flex-1 rounded-lg"
+                    onClick={() => {
+                      window.location.href = `${authBaseUrl}/google`;
+                    }}
+                  >
                     Google
                   </Button>
                   <Button variant="outline" type="button" className="flex-1 rounded-lg">
